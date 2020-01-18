@@ -95,6 +95,7 @@ do
   cat <<EOF > "$switcher"
 dns_address='$(eval "echo \${${dns_name[*]}}")'
 networksetup -setdnsservers $network_service \$(echo \$dns_address)
+open "bitbar://refreshPlugin?name=dnsswitcher.1d.sh" # if plugin name was changed, it has to be changed here as well
 EOF
   chmod 700 "$switcher"
   echo "$dns_name | bash=$switcher | terminal=false | refresh=true"
